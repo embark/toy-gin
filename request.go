@@ -1,6 +1,7 @@
 package main
 
 import (
+	"time"
 	"database/sql"
 	"fmt"
 	"net/http"
@@ -50,7 +51,7 @@ func (a *RequestAPI) Requesting(ctx *gin.Context) {
 		"id":        id, // ideally db autoinc id would not be directly exposed
 		"available": availability,
 		"title":     title,
-		"timestamp": "123",
+		"timestamp": time.Now().Format(time.RFC3339),
 	})
 }
 
